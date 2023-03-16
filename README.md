@@ -1,3 +1,3 @@
 # IYH
 
-Repositorio para pruebas, Ignacio Yáñez Henríquez
+Rama de repositorio para pruebas, Ignacio Yáñez Henríquez
