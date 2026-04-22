@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruleta de Exposición - USACH</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="membrete">
+      <div class="logo-wrap" aria-hidden="true">
+        <div class="logo-badge">
+          <span>USACH</span>
+        </div>
+      </div>
+      <div>
+        <p>Universidad de Santiago de Chile</p>
+        <p>Facultad de Ingeniería</p>
+        <p>Departamento de Ingeniería Geoespacial y Ambiental</p>
+        <p>Asignatura: Territorio, Medioambiente y Sostenibilidad -1er Semestre 2026</p>
+      </div>
+    </header>
+
+    <main class="app">
+      <h1>Ruleta de orden de exposición</h1>
+      <p class="subtitle">Gira la ruleta para definir el orden de salida de los grupos 1 al 7.</p>
+
+      <section class="wheel-area">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="500" height="500" aria-label="Ruleta grupos"></canvas>
+      </section>
+
+      <div class="controls">
+        <button id="spinBtn">Girar ruleta</button>
+        <button id="resetBtn" class="secondary">Reiniciar</button>
+      </div>
+
+      <section class="result-panel">
+        <h2>Resultado actual</h2>
+        <p id="currentPick">Aún no hay grupo seleccionado.</p>
+
+        <h3>Orden de salida</h3>
+        <ol id="orderList"></ol>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
