@@ -3,46 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ruleta de Exposición - USACH</title>
+    <title>Service Area Farmacias - Plaza Ñuñoa</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://js.arcgis.com/4.30/"></script>
   </head>
   <body>
-    <header class="membrete">
-      <div class="logo-wrap" aria-hidden="true">
-        <div class="logo-badge">
-          <span>USACH</span>
+    <div id="viewDiv" aria-label="Mapa ArcGIS"></div>
+
+    <aside id="panel" aria-label="Panel de análisis">
+      <h1>Service Area</h1>
+      <p class="hint">Busca una farmacia (ej: <em>Farmacia Cruz Verde en Plaza Ñuñoa</em>), elige modo y calcula cobertura.</p>
+
+      <label for="arcgisKey">ArcGIS API Key</label>
+      <input id="arcgisKey" type="password" placeholder="AAPK..." autocomplete="off" />
+
+      <label for="claudeProxy">Claude Proxy URL (opcional)</label>
+      <input id="claudeProxy" type="url" placeholder="https://tu-worker/claude" autocomplete="off" />
+
+      <label for="placeInput">Lugar a geocodificar</label>
+      <textarea id="placeInput" rows="2">farmacia en plaza ñuñoa</textarea>
+
+      <div class="row">
+        <div>
+          <label for="mode">Modo</label>
+          <select id="mode">
+            <option value="Walking Time">A pie</option>
+            <option value="Driving Time">En auto</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="breaks">Minutos</label>
+          <input id="breaks" type="text" value="5,10,15" />
         </div>
       </div>
-      <div>
-        <p>Universidad de Santiago de Chile</p>
-        <p>Facultad de Ingeniería</p>
-        <p>Departamento de Ingeniería Geoespacial y Ambiental</p>
-        <p>Asignatura: Territorio, Medioambiente y Sostenibilidad -1er Semestre 2026</p>
-      </div>
-    </header>
 
-    <main class="app">
-      <h1>Ruleta de orden de exposición</h1>
-      <p class="subtitle">Gira la ruleta para definir el orden de salida de los grupos 1 al 7.</p>
+      <button id="runBtn">Calcular service area</button>
 
-      <section class="wheel-area">
-        <div class="pointer" aria-hidden="true"></div>
-        <canvas id="wheel" width="500" height="500" aria-label="Ruleta grupos"></canvas>
-      </section>
+      <h2>Análisis</h2>
+      <pre id="analysis">Aún sin análisis.</pre>
 
-      <div class="controls">
-        <button id="spinBtn">Girar ruleta</button>
-        <button id="resetBtn" class="secondary">Reiniciar</button>
-      </div>
-
-      <section class="result-panel">
-        <h2>Resultado actual</h2>
-        <p id="currentPick">Aún no hay grupo seleccionado.</p>
-
-        <h3>Orden de salida</h3>
-        <ol id="orderList"></ol>
-      </section>
-    </main>
+      <h2>Log</h2>
+      <pre id="log"></pre>
+    </aside>
 
     <script src="script.js"></script>
   </body>
